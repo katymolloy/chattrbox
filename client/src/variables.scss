@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  background: rgb(0, 36, 27);
+  background: linear-gradient(
+    28deg,
+    rgba(0, 36, 27, 1) 0%,
+    rgba(255, 186, 0, 1) 0%,
+    rgba(255, 0, 93, 1) 100%
+  );
+}
+
+.glassPanel {
+  background-color: rgba(255, 255, 255, 0.25);
+  border: solid 2px rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+
+  display: flex;
+  flex-direction: column;
+}
