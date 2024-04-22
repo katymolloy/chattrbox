@@ -1,0 +1,21 @@
+.home{
+    width: 56vw;
+    height: 60vh;
+}
+
+.homeHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chatBox {
+  display: flex;
+
+  ul {
+    border: solid 1px white;
+    li {
+      list-style-type: none;
+    }
+  }
+}
