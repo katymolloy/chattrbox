@@ -1,34 +1,38 @@
 import { useState } from "react"
 import '../../styles/variables.scss'
+import './login.scss'
 import { useNavigate } from "react-router-dom"
-import { Link } from "react-router-dom"
+import { FaLock } from "react-icons/fa6";
+import { FaUser } from "react-icons/fa6";
 
 export default function Login() {
-    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     const navigate = useNavigate();
 
     const submitLogin = () => {
-        console.log(username, password)
+        console.log(email, password)
         navigate('/home')
     }
 
     return (
-        <div className="container">
-            <div className="glassPanel">
-                <Link to={'/'}>home</Link>
-                <form>
-                <input type="text"
-                    placeholder="username"
-                        onChange={(e) => setUsername(e.target.value)}
-                    ></input>
-                    <input type="text"
-                    placeholder="password"
+        <div className="glassPanel login">
+            <form>
+                <div>
+                    <FaUser color="rgba(0, 0, 0, 0.2)" /> <input type="text"
+                        placeholder="Email"
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </div>
+                <div>
+                    <FaLock  color="rgba(0, 0, 0, 0.2)" /><input type="text"
+                        placeholder="Password"
                         onChange={(e) => setPassword(e.target.value)}
-                    ></input>
-                   <div className="button" onClick={submitLogin}>sign in</div>
-                </form>
-            </div>
-        </div>)
+                    />
+                </div>
+                <div className="button" onClick={submitLogin}>SIGN IN</div>
+            </form>
+        </div>
+    )
 }

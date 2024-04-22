@@ -3,9 +3,8 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #8BC6EC;
-  background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
-  
+  background-color: #8bc6ec;
+  background-image: linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%);
 }
 
 .glassPanel {
@@ -21,26 +20,56 @@
   flex-direction: column;
 }
 
-*{
+* {
   cursor: default;
 }
 
-.button{
+a {
+  text-decoration: none;
   cursor: pointer;
-  background-color: pink;
+}
+
+.button{
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  background-color:  #9abcfb;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 500px;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 5px;
+  width: 100px;
+}
+
+.button:hover{
+  background-color: #7579bf;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 
-.cta-button{
-  text-decoration: none;
 
-}
-
-form{
+form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
+
+  div:not([class]){
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+  }
+
+  input {
+    border: none;
+    background-color: transparent;
+    padding: 10px 0;
+    width: 100%;
+  }
 }

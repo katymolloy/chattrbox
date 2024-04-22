@@ -1,0 +1,33 @@
+.landing {
+  padding: 30px;
+
+
+  .landingHeader {
+    margin: 0 0 30px 0;
+
+    h1,
+    h2 {
+      margin: 0;
+    }
+    .headerTagline{
+    margin-top: 15px;
+    }
+  }
+
+  
+
+  .signInOrRegister {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+  }
+
+  .signUpCta {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+  }
+}

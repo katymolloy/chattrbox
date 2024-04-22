@@ -1,0 +1,20 @@
+.register{
+    padding: 50px;
+
+    .registerTagline{
+        margin-bottom: 15px;
+    }
+
+    .backButton{
+        color: rgba(255, 255, 255, 0.8);
+        padding-bottom: 15px;
+        width: min-content;
+        display: flex;
+        align-items: center;
+    }
+
+    .backButton:hover{
+        color:#7579bf;
+        font-weight: bold;
+    }
+}
