@@ -1,5 +1,5 @@
 import { useState } from "react"
-import '../../variables.scss'
+import '../../styles/variables.scss'
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 

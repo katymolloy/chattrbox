@@ -3,18 +3,13 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-
-  background: rgb(0, 36, 27);
-  background: linear-gradient(
-    28deg,
-    rgba(0, 36, 27, 1) 0%,
-    rgba(255, 186, 0, 1) 0%,
-    rgba(255, 0, 93, 1) 100%
-  );
+  background-color: #8BC6EC;
+  background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+  
 }
 
 .glassPanel {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.4);
   border: solid 2px rgba(255, 255, 255, 0.2);
   -webkit-backdrop-filter: blur(5px);
   border-radius: 15px;
@@ -36,6 +31,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+.cta-button{
+  text-decoration: none;
+
 }
 
 form{

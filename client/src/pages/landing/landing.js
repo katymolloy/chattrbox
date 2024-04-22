@@ -1,4 +1,5 @@
-import '../../variables.scss';
+import '../../styles/variables.scss'
+
 import { Link } from 'react-router-dom';
 
 export default function Landing() {
