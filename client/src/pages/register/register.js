@@ -11,18 +11,20 @@ import './register.scss'
 import '../../styles/variables.scss'
 
 
-export default function Register() {
+export default function Register({ onDataChange }) {
     const navigate = useNavigate();
 
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
+    const [userName, setUserName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
 
     const submitRegister = (e) => {
         e.preventDefault();
-        createUser(firstName, lastName, email, password)
+        createUser(firstName, lastName, userName, email, password)
+        onDataChange(firstName, userName)
         navigate('/home')
     }
 
@@ -42,6 +44,11 @@ export default function Register() {
                         <input type="text"
                             placeholder="Last Name"
                             onChange={(e) => setLastName(e.target.value)}
+                        /></div>
+                    <div>
+                        <input type="text"
+                            placeholder="Username"
+                            onChange={(e) => setUserName(e.target.value)}
                         /></div>
                     <div>
                         <FaUser color="rgba(0, 0, 0, 0.2)" /> <input type="text"

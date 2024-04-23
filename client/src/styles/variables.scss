@@ -29,10 +29,10 @@ a {
   cursor: pointer;
 }
 
-.button{
+.button {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(8px);
-  background-color:  #9abcfb;
+  background-color: #9abcfb;
   text-decoration: none;
   font-weight: bold;
   cursor: pointer;
@@ -45,12 +45,10 @@ a {
   width: 100px;
 }
 
-.button:hover{
+.button:hover {
   background-color: #7579bf;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-
-
 
 form {
   display: flex;
@@ -59,7 +57,7 @@ form {
   align-items: center;
   gap: 10px;
 
-  div:not([class]){
+  div:not([class]) {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -71,5 +69,9 @@ form {
     background-color: transparent;
     padding: 10px 0;
     width: 100%;
+  }
+
+  input:focus {
+    outline: none;
   }
 }

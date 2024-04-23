@@ -8,7 +8,6 @@ app.use(express.json())
 app.use(cors())
 
 mongoose.connect('mongodb+srv://katymolloy:Evillesbian1!@chattrbox.treivmc.mongodb.net/chattrbox?retryWrites=true&w=majority', {
-    useNewUrlParser: true,
     dbName: 'chattrbox'
 })
     .then(() => console.log('MongoDB connected'))
@@ -31,6 +30,22 @@ app.post('/register', (req, res) => {
             console.error('Error creating user:', err);
             res.status(500).json({ message: 'Internal Server Error' });
         });
+})
+
+app.post('/login', (req, res) => {
+    const { email, password } = req.body;
+    UserModel.findOne({ email: email })
+        .then(user => {
+            if (user) {
+                if (user.password === password) {
+                    res.json({response: 'User is now logged in', fname: user.firstName, user: user.userName})
+                } else {
+                    res.json('Incorrect password')
+                }
+            } else {
+                res.json('No user found')
+            }
+        })
 })
 
 

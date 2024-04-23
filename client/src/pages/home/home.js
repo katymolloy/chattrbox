@@ -2,11 +2,12 @@ import { useEffect, useState } from "react"
 import './home.scss';
 import { Link } from "react-router-dom";
 
-export default function Home() {
+export default function Home({currName, currUser}) {
     const [name, setName] = useState('')
+    const [user, setUser] = useState('')
     useEffect(() => {
-        let fname = 'katy'
-        setName(fname)
+        setName(currName)
+        setUser(currUser)
     })
 
     return (
