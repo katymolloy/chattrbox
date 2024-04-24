@@ -7,21 +7,21 @@ import Login from './pages/login/login';
 import { useState } from 'react';
 
 function App() {
-const [name, setName] = useState('');
-const [username, setUsername] = useState('')
+  const [name, setName] = useState('');
+  const [username, setUsername] = useState('')
 
-const updateInfo = (name, user) =>{
-  setName(name)
-  setUsername(user)
-}
+  function updateInfo(name, user) {
+    setName(name)
+    setUsername(user)
+  }
 
   return (
     <Router>
       <Routes>
         <Route path='/' element={<Landing />} />
-        <Route path='/login' element={<Login onDataChange={updateInfo} />} />
-        <Route path='/register' element={<Register onDataChange={updateInfo}/>} />
-        <Route path='/home' element={<Home currName={name} currUser={username}/>} />
+        <Route path='/login' element={<Login onUserChange={updateInfo} />} />
+        <Route path='/register' element={<Register onUserChange={updateInfo} />} />
+        <Route path='/home' element={<Home currName={name} currUser={username} />} />
       </Routes>
     </Router>
   );

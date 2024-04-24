@@ -6,20 +6,20 @@ import { useNavigate } from "react-router-dom"
 import { FaLock } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa6";
 
-export default function Login({ onDataChange }) {
+export default function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState('')
 
     const navigate = useNavigate();
-   
+
+
     const submitLogin = (e) => {
         e.preventDefault();
-   
-        signInUser(email, password, onDataChange)
+
+        signInUser(email, password)
             .then(res => {
                 if (res.response === 'User is now logged in') {
-                    // onDataChange(res.fname, res.user)
                     navigate('/home')
                 } else {
                     setErrors(res)
@@ -43,7 +43,7 @@ export default function Login({ onDataChange }) {
                     />
                 </div>
                 <div>
-                    <FaLock color="rgba(0, 0, 0, 0.2)" /><input type="text"
+                    <FaLock color="rgba(0, 0, 0, 0.2)" /><input type="password"
                         placeholder="Password"
                         onChange={(e) => setPassword(e.target.value)}
                     />

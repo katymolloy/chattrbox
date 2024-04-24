@@ -1,8 +1,8 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import { FaAngleLeft } from "react-icons/fa6";
-import { createUser } from "../../utilities/axios";
+import { createUser, getUsernames } from "../../utilities/axios";
 
 import { FaLock } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa6";
@@ -16,16 +16,24 @@ export default function Register({ onDataChange }) {
 
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
-    const [userName, setUserName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    const [errors, setErrors] = useState('')
+
+
 
 
     const submitRegister = (e) => {
         e.preventDefault();
-        createUser(firstName, lastName, userName, email, password)
-        onDataChange(firstName, userName)
-        navigate('/home')
+        createUser(firstName, lastName, email, password)
+            .then(res => {
+                if (res.response === 'User created') {
+                    navigate('/home')
+                } else {
+                    setErrors(res.response.data.message)
+                }
+            })
     }
 
     return (
@@ -34,6 +42,9 @@ export default function Register({ onDataChange }) {
                 <Link to={'/'} className="backButton"><FaAngleLeft />Back</Link>
                 <form>
                     <div className="registerTagline">Fill out the fields below to create an account.</div>
+                    {errors.length > 0 ?
+                        <p>{errors}</p> :
+                        <></>}
                     <div>
                         <input type="text"
                             placeholder="First Name"
@@ -45,11 +56,7 @@ export default function Register({ onDataChange }) {
                             placeholder="Last Name"
                             onChange={(e) => setLastName(e.target.value)}
                         /></div>
-                    <div>
-                        <input type="text"
-                            placeholder="Username"
-                            onChange={(e) => setUserName(e.target.value)}
-                        /></div>
+
                     <div>
                         <FaUser color="rgba(0, 0, 0, 0.2)" /> <input type="text"
                             placeholder="Email"
@@ -57,7 +64,7 @@ export default function Register({ onDataChange }) {
                         />
                     </div>
                     <div>
-                        <FaLock color="rgba(0, 0, 0, 0.2)" /><input type="text"
+                        <FaLock color="rgba(0, 0, 0, 0.2)" /><input type="password"
                             placeholder="Password"
                             onChange={(e) => setPassword(e.target.value)}
                         />
@@ -65,5 +72,6 @@ export default function Register({ onDataChange }) {
                     <div className="button" onClick={submitRegister}>SIGN UP</div>
                 </form>
             </div>
-        </div>)
+        </div>
+    )
 }
