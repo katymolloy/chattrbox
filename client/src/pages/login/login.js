@@ -16,15 +16,19 @@ export default function Login() {
 
     const submitLogin = (e) => {
         e.preventDefault();
+        if (email.length > 0 && password.length > 0) {
+            signInUser(email, password)
+                .then(res => {
+                    if (res.response === 'User is now logged in') {
+                        navigate('/home')
+                    } else {
+                        setErrors(res.response.data.message)
+                    }
+                })
+        } else {
+            setErrors('Please fill out both fields')
+        }
 
-        signInUser(email, password)
-            .then(res => {
-                if (res.response === 'User is now logged in') {
-                    navigate('/home')
-                } else {
-                    setErrors(res)
-                }
-            })
     }
 
     return (

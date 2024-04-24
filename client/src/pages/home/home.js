@@ -1,26 +1,23 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import './home.scss';
 import { Link } from "react-router-dom";
 
-export default function Home({currName, currUser}) {
+export default function Home() {
     const [name, setName] = useState('')
     const [user, setUser] = useState('')
-    useEffect(() => {
-        setName(currName)
-        setUser(currUser)
-    })
+
 
     return (
         <div className="container">
             <div className="glassPanel home">
                 <div className="homeHeader">
-                    <h1>hey there, {name}</h1>
-                    <Link to={'/'}>sign out</Link>
+                    <h1>Hey there, {name}</h1>
+                    <Link to={'/'}><div className="button">SIGN OUT</div></Link>
                 </div>
 
                 <div className="chatBox">
                     <div className="allFriends">
-                        <label>online</label>
+                        <label>Online</label>
                         <ul className="onlineFriends">
                             <li>folrof</li>
                             <li>folrof</li>
@@ -29,7 +26,7 @@ export default function Home({currName, currUser}) {
                             <li>folrof</li>
 
                         </ul>
-                        <label>offline</label>
+                        <label>Offline</label>
                         <ul className="offlineFriends">
                             <li>ijbol</li>
                             <li>ijbol</li>

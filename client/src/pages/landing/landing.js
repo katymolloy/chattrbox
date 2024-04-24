@@ -6,12 +6,14 @@ import { Link } from 'react-router-dom';
 
 export default function Landing() {
 
-    
+
     return (
         <div className="container">
             <div className="glassPanel landing">
                 <div className='landingHeader'>
-                    <h1>chattrbox</h1>
+                    <div className='title'>                    <h1>chattrbox</h1>
+                    {/* <img src='chattrboxlogo.png'  /> */}
+                    </div>
                     <h2>Instant connection in your browser</h2>
                     <div className='headerTagline'>Login or sign up to get started</div>
 
