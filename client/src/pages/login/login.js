@@ -19,10 +19,10 @@ export default function Login() {
         if (email.length > 0 && password.length > 0) {
             signInUser(email, password)
                 .then(res => {
-                    if (res.response === 'User is now logged in') {
+                    if (res.message === 'Login successful') {
                         navigate('/home')
                     } else {
-                        setErrors(res.response.data.message)
+                        setErrors(res.message)
                     }
                 })
         } else {

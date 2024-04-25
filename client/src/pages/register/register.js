@@ -24,14 +24,20 @@ export default function Register() {
 
     const submitRegister = (e) => {
         e.preventDefault();
-        createUser(firstName, lastName, email, password)
-            .then(res => {
-                if (res.response === 'User created') {
-                    navigate('/home')
-                } else {
-                    setErrors(res.response.data.message)
-                }
-            })
+        if (email.length > 0 && firstName.length > 0 && password.length > 0 && lastName.length > 0) {
+            createUser(firstName, lastName, email, password)
+                .then(res => {
+                    console.log('from register page', res)
+                    if (res.message === 'User created') {
+                        navigate('/home')
+                    } else {
+                        setErrors(res.message)
+                    }
+
+                })
+        } else {
+            setErrors('Please fill out form before submitting.')
+        }
     }
 
     return (
@@ -44,21 +50,21 @@ export default function Register() {
                         <p>{errors}</p> :
                         <></>}
                     <div>
-                    <FaUser color="rgba(0, 0, 0, 0.2)" />
+                        <FaUser color="rgba(0, 0, 0, 0.2)" />
                         <input type="text"
                             placeholder="First Name"
                             onChange={(e) => setFirstName(e.target.value)}
                         />
                     </div>
                     <div>
-                    <FaUser color="rgba(0, 0, 0, 0.2)" />
+                        <FaUser color="rgba(0, 0, 0, 0.2)" />
                         <input type="text"
                             placeholder="Last Name"
                             onChange={(e) => setLastName(e.target.value)}
                         /></div>
 
                     <div>
-                    <IoMail color="rgba(0, 0, 0, 0.2)" />
+                        <IoMail color="rgba(0, 0, 0, 0.2)" />
                         <input type="text"
                             placeholder="Email"
                             onChange={(e) => setEmail(e.target.value)}
